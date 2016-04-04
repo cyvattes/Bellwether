@@ -1,0 +1,13 @@
+<div class="container">
+  <% if session[:user_id] %>
+  <!-- display normal index page -->
+
+
+  <% else %>
+  <!-- display partials for login and sign-up -->
+    <%= erb :'_sign-in-form', layout: false %>
+    <%= erb :'_login', layout: false %>
+    <%= erb :'_signup', layout: false %>
+  <% end %>
+
+</div>

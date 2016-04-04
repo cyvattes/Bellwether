@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/application.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
+
+  <title>Bellwether</title>
+</head>
+<body>
+  <nav class="navbar-static-top">
+    <div class="wrapper-full">
+      <div class="navbar-left">
+        <div id="logo">
+          <img src="images/placeholder.png" height="75" width="75">
+        </div>
+        <div id="placeholder-title">
+          <h1>Bellwether</h1>
+        </div>
+      </div>
+      <% if session[:user_id] %>
+        <div class="navbar-right">
+          <p>Logged in as: <%= session[:username] %></p>
+        </div>
+      <% end %>
+    </div>
+  </nav>
+
+
+  <%= yield %>
+
+  <footer>
+    <p id="copyright">&copy; 2016 Cyrus Vattes</p>
+  </footer>
+</body>
+</html>

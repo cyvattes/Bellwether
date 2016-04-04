@@ -1,0 +1,105 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  padding: 0px 20px 20px 20px;
+}
+
+.wrapper-full {
+  background-color: #B5214B;
+  color: white;
+  width: 90%;
+  height: 75px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.navbar-left {
+  float: left;
+}
+
+.navbar-right {
+  float: right;
+  padding-top: 1.5%;
+  padding-right: 2%;
+}
+
+#logo {
+  display: inline-block;
+}
+
+#placeholder-title {
+  display: inline-block;
+  font-size: 1.5rem;
+}
+
+.sign-in-form {
+  display: inline-block;
+  width: 100%;
+}
+
+.sign-in-table {
+  margin: 0 auto;
+  width: 80%;
+}
+
+th {
+  padding-top: 20%;
+  width: 50%;
+}
+
+.form {
+  background-color: #B5214B;
+  border-radius: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 0 auto;
+  width: 60%;
+}
+
+.form-control {
+  padding: 6px;
+  padding-left: 10%;
+}
+
+.login {
+  padding-top: 20%;
+  display: none;
+}
+
+.signup {
+  padding-top: 20%;
+  display: none;
+}
+
+input {
+  background-color: #FFF;
+  color: #56565D;
+  border-radius: 10px;
+  border: 1px solid #CACACE;  height: 34px;
+  width: 80%;
+  box-shadow: inset 0 1px 2px #CACACE;
+}
+
+input, textarea {
+  font-size: 1.2rem;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+}
+
+input[type="submit"] {
+  font-size: 1.5rem;
+  font-weight: 400;
+  background-image: linear-gradient(#ffffff,#e7e4ee);
+  background-color: #E7E4EE;
+  color: #B5214B;
+  height: 4rem;
+  width: 90%;
+}
+
+#copyright {
+  position: absolute;
+  top: 95%;
+  left: 80%;
+  float: right;
+}
+
