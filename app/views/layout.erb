@@ -13,16 +13,20 @@
   <nav class="navbar-static-top">
     <div class="wrapper-full">
       <div class="navbar-left">
-        <div id="logo">
-          <img src="images/placeholder.png" height="75" width="75">
-        </div>
-        <div id="placeholder-title">
+        <div id="title">
           <h1>Bellwether</h1>
         </div>
       </div>
-      <% if session[:user_id] %>
+      <% if session[:username] %>
         <div class="navbar-right">
-          <p>Logged in as: <%= session[:username] %></p>
+          <div id="session">
+            <p>@<%= session[:username] %></p>
+          </div>
+          <div id="logout">
+            <form id="logout-button" action="/users/logout" method="POST">
+              <button type="submit">Logout</button>
+            </form>
+          </div>
         </div>
       <% end %>
     </div>

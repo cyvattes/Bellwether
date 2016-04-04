@@ -19,17 +19,22 @@
 
 .navbar-right {
   float: right;
+  width: 20%;
   padding-top: 1.5%;
-  padding-right: 2%;
 }
 
-#logo {
-  display: inline-block;
-}
-
-#placeholder-title {
+#title {
   display: inline-block;
   font-size: 1.5rem;
+}
+
+#session {
+  float: left;
+}
+
+#logout {
+  float: right;
+  padding-top: 7%;
 }
 
 .sign-in-form {
@@ -94,6 +99,13 @@ input[type="submit"] {
   color: #B5214B;
   height: 4rem;
   width: 90%;
+}
+
+button[type="submit"] {
+  background-image: linear-gradient(#ffffff,#e7e4ee);
+  background-color: #E7E4EE;
+  color: #B5214B;
+  border-radius: 10px;
 }
 
 #copyright {
