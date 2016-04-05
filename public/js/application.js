@@ -39,8 +39,8 @@ function signupListener(){
     var signupData = $(this).serialize();
     console.log(signupData);
     var request = $.ajax({
-      url: '/users/new',
-      method: 'GET',
+      url: '/users',
+      method: 'POST',
       data: signupData
     })
     request.done(function(data){
