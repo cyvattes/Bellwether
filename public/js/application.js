@@ -26,7 +26,11 @@ function loginListener(){
       data: loginData
     })
     request.done(function(data){
-      window.location.href = "/users/" + data;
+      if (data){
+        window.location.href = "/users/" + data;
+      } else {
+        window.location.href = "/";
+      }
     })
     request.fail(function(){
       console.log("Oops! Something went wrong.");
