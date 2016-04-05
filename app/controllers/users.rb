@@ -5,7 +5,7 @@ get '/users/login' do
       session[:username] = @user.username
       return @user.id.to_s
     else
-      return false
+      return ""
     end
   end
 end
