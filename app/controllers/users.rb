@@ -15,7 +15,13 @@ post '/users/logout' do
   redirect '/'
 end
 
-get '/users/new' do
+get '/users/:id' do
+  @user = User.find(params[:id])
+  @stations = Station.all
+  erb :'/users/index'
+end
+
+post 'users' do
   if request.xhr?
     @user = User.new(email: params[:email], username: params[:username], password: params[:password])
     if @user.save
@@ -25,13 +31,4 @@ get '/users/new' do
       redirect '/'
     end
   end
-end
-
-get '/users/:id' do
-  @user = User.find(params[:id])
-  erb :'/users/index'
-end
-
-post 'users' do
-
 end

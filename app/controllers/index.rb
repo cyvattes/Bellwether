@@ -1,6 +1,6 @@
 get '/' do
-  if session[:username]
-    redirect '/users/:id'
+  if session[:user_id]
+    redirect "/users/#{session[:user_id]}"
   else
     erb :index
   end

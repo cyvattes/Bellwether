@@ -1,1 +1,19 @@
-<h1>Hello, <%= @user.username %></h1>
+<div class="container">
+  <div id="welcome">
+    <h1>Welcome to Bellwether!</h1>
+    <p>Select a Caltrain Station and hit Alert ME! to<br>be alerted when you are nearing your stop.</p>
+  </div>
+  <div id="map">
+    <!-- MAP CENTERED ON SELF GOES HERE -->
+  </div>
+  <div id="station">
+    <select id="station-selector">
+      <% @stations.each do |station| %>
+        <option value="<%= station.id %>"><%= station.name %></option>
+      <% end %>
+    </select>
+  </div>
+  <div id="station">
+    <input class="login-submit" type="submit"  value="Alert Me!"></input>
+  </div>
+</div>
