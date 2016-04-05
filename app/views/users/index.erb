@@ -6,14 +6,16 @@
   <div id="map">
     <!-- MAP CENTERED ON SELF GOES HERE -->
   </div>
-  <div id="station">
-    <select id="station-selector">
-      <% @stations.each do |station| %>
-        <option value="<%= station.id %>"><%= station.name %></option>
-      <% end %>
-    </select>
-  </div>
-  <div id="station">
-    <input class="login-submit" type="submit"  value="Alert Me!"></input>
+  <div id="station-holder">
+    <div class="station">
+      <select id="station-selector">
+        <% @stations.each do |station| %>
+          <option value="<%= station.id %>"><%= station.name %></option>
+        <% end %>
+      </select>
+    </div>
+    <div class="station">
+      <input class="login-submit" type="submit"  value="Alert Me!"></input>
+    </div>
   </div>
 </div>
