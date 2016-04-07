@@ -22,7 +22,7 @@
       <% if session[:username] %>
         <div class="navbar-right">
           <div id="session">
-            <p>@<%= session[:username] %></p>
+            <a href="/users/1">@<%= session[:username] %></a>
           </div>
           <div id="logout">
             <form id="logout-button" action="/users/logout" method="POST">
