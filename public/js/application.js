@@ -65,6 +65,7 @@ function alertListener(){
 }
 
 var map;
+var i = 0;
 function initMap() {
   var pos = {lat: -34.397, lng: 150.644};
   map = new google.maps.Map(document.getElementById('map'), {
@@ -81,16 +82,15 @@ function initMap() {
       position: pos,
       map: map
     });
-    for (var i=0; i<10;i+=0.1){
-      setInterval(function(){
-        pos = {
-        lat: position.coords.latitude + i,
-        lng: position.coords.longitude + i
-        };
-        map.setCenter(pos);
-        marker.position = pos;
-        console.log("lat: " + pos.lat + " | lng: " + pos.lng);
-      },1000);
-    }
+    setInterval(function(){
+      pos = {
+      lat: position.coords.latitude + i,
+      lng: position.coords.longitude + i
+      };
+      i++;
+      map.setCenter(pos);
+      marker.position = pos;
+      console.log("lat: " + pos.lat + " | lng: " + pos.lng);
+    },1000);
   });
 }
