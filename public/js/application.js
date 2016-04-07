@@ -81,14 +81,16 @@ function initMap() {
       position: pos,
       map: map
     });
-    setInterval(function(){
-      pos = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude
-      };
-      map.setCenter(pos);
-      marker.position = pos;
-      console.log("lat: " + pos.lat + " | lng: " + pos.lng);
-    },1000);
+    for (var i=0; i<10;i+=0.1){
+      setInterval(function(){
+        pos = {
+        lat: position.coords.latitude + i,
+        lng: position.coords.longitude + i
+        };
+        map.setCenter(pos);
+        marker.position = pos;
+        console.log("lat: " + pos.lat + " | lng: " + pos.lng);
+      },1000);
+    }
   });
 }
