@@ -32,3 +32,7 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
+
+AWS::S3::Base.establish_connection!(
+ :maps_key   => ENV['GOOGLE_MAPS_API_KEY']
+)
