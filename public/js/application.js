@@ -60,5 +60,12 @@ function alertListener(){
     var station = $("#station-selector option:selected").text();
     $("#station-holder").hide();
     $("#map").show();
+    var map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 8
+      });
+    }
   })
 }
