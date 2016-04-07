@@ -8,7 +8,15 @@
 
     <!-- MAP CENTERED ON SELF GOES HERE -->
   </div>
-
+  <script>
+    var map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 8
+      });
+    }
+  </script>
   <div id="station-holder">
     <div class="station">
       <select id="station-selector">
