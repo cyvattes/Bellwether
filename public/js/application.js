@@ -63,3 +63,32 @@ function alertListener(){
     initMap();
   })
 }
+
+var map;
+function initMap() {
+  var pos = {lat: -34.397, lng: 150.644};
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: pos,
+    zoom: 15
+  });
+  navigator.geolocation.getCurrentPosition(function(position){
+    pos = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    };
+    map.setCenter(pos);
+    var marker = new google.maps.Marker({
+      position: pos,
+      map: map
+    });
+    setInterval(function(){
+      pos = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+      };
+      map.setCenter(pos);
+      marker.position = pos;
+      console.log(pos);
+    },1000);
+  });
+}
