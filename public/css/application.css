@@ -144,7 +144,9 @@ button[type="submit"] {
 }
 
 #map {
-  height: 50em;
-  width: 50em;
+  margin: 0 auto;
+  height: 25em;
+  width: 25em;
+  display: none;
 }
 
