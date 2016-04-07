@@ -143,3 +143,8 @@ button[type="submit"] {
   float: right;
 }
 
+#map {
+  height: 50em;
+  width: 50em;
+}
+
