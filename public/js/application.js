@@ -56,7 +56,7 @@ function signupListener(){
 }
 
 function alertListener(){
-  $(".station").on("submit", function(){
+  $("#alert-button").on("click", function(){
     var station = $("#station-selector option:selected").text();
     $("#station-holder").hide();
     $("#map").show();
