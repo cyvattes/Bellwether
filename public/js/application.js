@@ -88,7 +88,7 @@ function initMap() {
       };
       map.setCenter(pos);
       marker.position = pos;
-      console.log(pos);
+      console.log("lat: " + pos.lat + " | lng: " + pos.lng);
     },1000);
   });
 }
