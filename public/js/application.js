@@ -60,13 +60,14 @@ function alertListener(){
     var station = $("#station-selector option:selected").text();
     $("#station-holder").hide();
     $("#map").show();
+    debugger;
     initMap();
   })
 }
 
 var map;
-var i = 0;
 function initMap() {
+  debugger;
   var pos = {lat: -34.397, lng: 150.644};
   map = new google.maps.Map(document.getElementById('map'), {
     center: pos,
@@ -82,15 +83,18 @@ function initMap() {
       position: pos,
       map: map
     });
+    var targetStation = new google.maps.Marker({
+      position: pos, //pin location set to selected station
+      map: map
+    });
     setInterval(function(){
       pos = {
-      lat: position.coords.latitude + i,
-      lng: position.coords.longitude + i
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
       };
-      i++;
       map.setCenter(pos);
       marker.position = pos;
       console.log("lat: " + pos.lat + " | lng: " + pos.lng);
-    },1000);
+    },30000); //pin updates every 30 seconds
   });
 }
