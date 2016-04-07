@@ -6,6 +6,7 @@ function bindListeners(){
   formListener();
   loginListener();
   signupListener();
+  alertListener();
 }
 
 function formListener(){
@@ -51,5 +52,13 @@ function signupListener(){
     request.fail(function(){
       console.log("Oops! Something went wrong.");
     })
+  })
+}
+
+function alertListener(){
+  $(".station").on("submit", function(){
+    var station = $("#station-selector option:selected").text();
+    $("#station-holder").hide();
+    $("#map").show();
   })
 }
