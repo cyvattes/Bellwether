@@ -61,6 +61,5 @@ function alertListener(){
     $("#station-holder").hide();
     $("#map").show();
     initMap();
-    }
   })
 }
