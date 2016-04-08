@@ -115,13 +115,14 @@ function updatePosition(timer){
     var refreshID = setInterval(function(){
       map.setCenter(pos);
       marker.setPosition(pos);
-      if (proximityFinder() < 0.5){ //<---------!!!!!!!! For demo, change value to be < 1
+      if (proximityFinder() < 0.5){ //distance in kilometers //<---------!!!!!!!! For demo, change value to be < 1
         clearInterval(refreshID);
         var ping = new Audio("/sounds/ping.mp3");
         ping.play();
         setTimeout(function(){
           alert("Your stop is coming up!");
         }, 500)
+        location.reload(true);
       }
     },(timer*1000));
   });
