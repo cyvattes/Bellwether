@@ -57,44 +57,78 @@ function signupListener(){
 
 function alertListener(){
   $("#alert-button").on("click", function(){
-    var station = $("#station-selector option:selected").text();
+    var stationSelection = {name: $("#station-selector option:selected").text()};
     $("#station-holder").hide();
     $("#map").show();
-    debugger;
+    //create map
     initMap();
+    //get coordinates of selected station
+    var request = $.ajax({
+      url: "/stations",
+      method: "GET",
+      data: stationSelection
+    })
+    request.done(function(data){
+      setMarkers(data);
+    })
+    request.fail(function(){
+      console.log("Oops! Something went wrong.");
+    })
+    //update position of user marker
+    //proximity detection inside
+    updatePosition(30); //update interval in seconds //<---------!!!!!!!! For demo, change value to be 1
   })
 }
-
+ //Initialize Global Variables
 var map;
+var marker;
+var destination;
+var pos = navigator.geolocation.getCurrentPosition(function(position){
+  pos = {
+    lat: position.coords.latitude,
+    lng: position.coords.longitude
+  };
+  return pos;
+});
+
 function initMap() {
-  debugger;
-  var pos = {lat: -34.397, lng: 150.644};
   map = new google.maps.Map(document.getElementById('map'), {
     center: pos,
     zoom: 15
   });
-  navigator.geolocation.getCurrentPosition(function(position){
-    pos = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude
-    };
-    map.setCenter(pos);
-    var marker = new google.maps.Marker({
-      position: pos,
-      map: map
-    });
-    var targetStation = new google.maps.Marker({
-      position: pos, //pin location set to selected station
-      map: map
-    });
-    setInterval(function(){
-      pos = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude
-      };
-      map.setCenter(pos);
-      marker.position = pos;
-      console.log("lat: " + pos.lat + " | lng: " + pos.lng);
-    },30000); //pin updates every 30 seconds
+}
+
+function setMarkers(station){
+  marker = new google.maps.Marker({
+    position: pos,
+    map: map
   });
+  //pin location set to selected station
+  destination = new google.maps.Marker({
+    position: station,
+    map: map
+  });
+}
+
+function updatePosition(timer){
+  navigator.geolocation.getCurrentPosition(function(position){
+    var refreshID = setInterval(function(){
+      map.setCenter(pos);
+      marker.setPosition(pos);
+      if (proximityFinder() < 0.5){ //<---------!!!!!!!! For demo, change value to be < 1
+        clearInterval(refreshID);
+        var ping = new Audio("/sounds/ping.mp3");
+        ping.play();
+        setTimeout(function(){
+          alert("Your stop is coming up!");
+        }, 500)
+      }
+    },(timer*1000));
+  });
+}
+
+function proximityFinder(){  var p1 = marker.position;
+  var p1 = marker.position;
+  var p2 = destination.position;
+  return (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(2);
 }
