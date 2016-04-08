@@ -76,7 +76,7 @@ function alertListener(){
     })
     //update position of user marker
     //proximity detection inside
-    updatePosition(30); //update interval in seconds //<---------!!!!!!!! For demo, change value to be 1
+    updatePosition(5); //update interval in seconds //<---------!!!!!!!! For demo, change value to be 1
   })
 }
  //Initialize Global Variables
@@ -115,7 +115,7 @@ function updatePosition(timer){
     var refreshID = setInterval(function(){
       map.setCenter(pos);
       marker.setPosition(pos);
-      if (proximityFinder() < 0.5){ //distance in kilometers //<---------!!!!!!!! For demo, change value to be < 1
+      if (proximityFinder() < 1){ //distance in kilometers //<---------!!!!!!!! For demo, change value to be < 1
         clearInterval(refreshID);
         var ping = new Audio("/sounds/ping.mp3");
         ping.play();
