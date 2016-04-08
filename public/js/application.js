@@ -121,8 +121,9 @@ function updatePosition(timer){
         ping.play();
         setTimeout(function(){
           alert("Your stop is coming up!");
+          location.reload(true);
         }, 500)
-        location.reload(true);
+
       }
     },(timer*1000));
   });
